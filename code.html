@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ProdabelFlow Architect 360 - Dark Mode PT-BR</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            850: '#1e293b', 
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        primary: { 
+                            DEFAULT: "#6366f1", // Indigo 500
+                            hover: "#4f46e5",   // Indigo 600
+                            light: "#818cf8",   // Indigo 400
+                        },
+                        accent: {
+                            green: '#34d399', // Emerald 400
+                            blue: '#60a5fa',  // Blue 400
+                            yellow: '#fbbf24',// Amber 400
+                            purple: '#c084fc',// Purple 400
+                            cyan: '#22d3ee',  // Cyan 400
+                        }
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
+                        'glow-cyan': '0 0 30px -5px rgba(34, 211, 238, 0.4)',
+                        'glow-primary': '0 0 30px -5px rgba(99, 102, 241, 0.3)',
+                        'card-inner': 'inset 0 0 0 1px rgba(255, 255, 255, 0.05)',
+                    },
+                    backgroundImage: {
+                        'dark-gradient': 'radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.15) 0%, rgba(2, 6, 23, 0) 50%)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #818cf8 0%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-50 font-display overflow-x-hidden selection:bg-primary selection:text-white">
+<div class="fixed inset-0 pointer-events-none z-[-1]">
+<div class="absolute top-[-10%] left-[20%] w-[40rem] h-[40rem] bg-indigo-900/20 rounded-full blur-[120px] mix-blend-screen"></div>
+<div class="absolute bottom-[-10%] right-[10%] w-[35rem] h-[35rem] bg-blue-900/20 rounded-full blur-[100px] mix-blend-screen"></div>
+<div class="absolute top-[40%] left-[-10%] w-[25rem] h-[25rem] bg-slate-800/20 rounded-full blur-[80px]"></div>
+</div>
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-panel border-b border-white/5">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 flex items-center justify-center bg-primary rounded-lg text-white shadow-[0_0_15px_rgba(99,102,241,0.5)]">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+</div>
+<span class="font-bold text-xl tracking-tight text-white">ProdabelFlow</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="#">Funcionalidades</a>
+<a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="#">Soluções</a>
+<a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="#">Preços</a>
+<a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="#">Docs</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="hidden sm:block text-sm font-bold text-slate-200 hover:text-white transition-colors" href="#">Entrar</a>
+<button class="bg-primary hover:bg-primary-hover text-white px-5 py-2.5 rounded-xl text-sm font-bold transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 flex items-center gap-2 border border-white/10">
+<span>Começar Agora</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="relative z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700 text-xs font-bold text-accent-cyan mb-6 shadow-sm backdrop-blur-sm">
+<span class="w-2 h-2 rounded-full bg-accent-green animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.6)]"></span>
+                    v2.0 Disponível com Suporte NotebookLM
+                </div>
+<h1 class="text-5xl lg:text-7xl font-black tracking-tight leading-[1.1] mb-6 text-white">
+<span class="text-gradient">ProdabelFlow</span><br/>
+                    Architect 360°
+                </h1>
+<p class="text-lg text-slate-400 mb-8 max-w-lg leading-relaxed">
+                    A ponte definitiva entre requisitos de negócio e a engenharia de software governada.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary hover:bg-primary-hover text-white h-14 px-8 rounded-2xl text-base font-bold transition-all shadow-xl shadow-primary/25 hover:shadow-primary/50 flex items-center gap-2 border-t border-white/10">
+                        Iniciar Teste Grátis
+                        <span class="material-symbols-outlined">rocket_launch</span>
+</button>
+<button class="bg-slate-900/50 hover:bg-slate-800 text-white border border-slate-700 h-14 px-8 rounded-2xl text-base font-bold transition-all shadow-sm hover:shadow-md flex items-center gap-2 backdrop-blur-sm">
+<span class="material-symbols-outlined text-accent-blue">play_circle</span>
+                        Ver Demo
+                    </button>
+</div>
+</div>
+<div class="relative lg:h-[600px] w-full flex items-center justify-center perspective-1000">
+<div class="relative w-full max-w-lg aspect-square lg:aspect-auto h-full bg-slate-900/40 backdrop-blur-md rounded-3xl p-6 shadow-2xl border border-white/10 transform rotate-y-12 transition-transform duration-700 hover:rotate-0 group">
+<div class="bg-slate-900 rounded-2xl h-full shadow-inner overflow-hidden flex flex-col border border-slate-800 relative">
+<div class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-gradient-to-br from-indigo-500/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+<div class="h-10 bg-slate-950 border-b border-slate-800 flex items-center px-4 gap-2 z-10">
+<div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+<div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+<div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+<div class="ml-4 h-5 w-48 bg-slate-800 rounded-md"></div>
+</div>
+<div class="p-6 flex-1 flex flex-col gap-6 relative z-10">
+<div class="flex justify-between items-center mb-2">
+<div class="bg-slate-800/80 border border-slate-700 p-3 rounded-xl flex items-center gap-3 w-5/12 shadow-lg relative group-hover:border-blue-500/50 transition-colors">
+<div class="bg-blue-900/50 p-2 rounded-lg text-accent-blue">
+<span class="material-symbols-outlined text-sm">description</span>
+</div>
+<div class="flex flex-col gap-1 w-full">
+<div class="h-1.5 w-12 bg-slate-600 rounded-full"></div>
+<div class="h-1.5 w-8 bg-slate-700 rounded-full"></div>
+</div>
+</div>
+<div class="h-[1px] flex-1 bg-gradient-to-r from-slate-700 via-primary to-slate-700 relative mx-2">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-slate-900 border border-primary text-primary rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(99,102,241,0.5)] z-10">
+<span class="material-symbols-outlined text-xs animate-pulse">auto_awesome</span>
+</div>
+</div>
+<div class="bg-slate-800/80 border border-slate-700 p-3 rounded-xl flex items-center gap-3 w-5/12 shadow-lg relative group-hover:border-emerald-500/50 transition-colors">
+<div class="bg-emerald-900/50 p-2 rounded-lg text-accent-green">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</div>
+<div class="flex flex-col gap-1 w-full">
+<div class="h-1.5 w-12 bg-slate-600 rounded-full"></div>
+<div class="h-1.5 w-8 bg-slate-700 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="bg-slate-950/50 rounded-xl p-4 border border-slate-800 flex-1 relative overflow-hidden group-hover:shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] transition-all">
+<div class="absolute inset-0 grid-bg opacity-30"></div>
+<div class="space-y-4 relative z-10 mt-2">
+<div class="flex gap-3">
+<div class="w-1/3 h-20 bg-slate-800/60 rounded-lg border border-slate-700/50 backdrop-blur-sm"></div>
+<div class="w-2/3 h-20 bg-slate-800/60 rounded-lg border border-slate-700/50 backdrop-blur-sm flex items-center justify-center">
+<div class="w-3/4 h-2 bg-slate-700 rounded-full"></div>
+</div>
+</div>
+<div class="w-full h-24 bg-slate-800/60 rounded-lg border border-slate-700/50 backdrop-blur-sm flex flex-col gap-2 p-3">
+<div class="w-1/2 h-2 bg-slate-700 rounded-full"></div>
+<div class="w-full h-2 bg-slate-700/50 rounded-full"></div>
+<div class="w-3/4 h-2 bg-slate-700/50 rounded-full"></div>
+</div>
+</div>
+<div class="absolute bottom-4 right-4 bg-accent-green/10 border border-accent-green/20 text-accent-green text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-1 backdrop-blur-md">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                                    Sincronizado
+                                </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-slate-900/30 border-y border-white/5 relative">
+<div class="absolute inset-0 bg-dark-gradient pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="text-center mb-16">
+<h2 class="text-primary-light font-bold text-sm uppercase tracking-wider mb-2">Motor de Ingestão</h2>
+<h3 class="text-3xl md:text-4xl font-bold text-white">Ingestão Inteligente de Dados &amp; IA</h3>
+<p class="mt-4 text-slate-400 max-w-2xl mx-auto">Transforme documentos não estruturados em ativos de arquitetura acionáveis.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8 relative items-center">
+<div class="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent -translate-y-1/2 z-0"></div>
+<div class="relative z-10 bg-slate-900 p-8 rounded-2xl border border-white/10 shadow-card-inner hover:-translate-y-1 transition-transform duration-300 h-full">
+<div class="w-14 h-14 bg-blue-500/10 text-accent-blue border border-blue-500/20 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(96,165,250,0.15)]">
+<span class="material-symbols-outlined text-3xl">description</span>
+</div>
+<h4 class="text-xl font-bold mb-3 text-white">Documentos Word (.docx)</h4>
+<p class="text-slate-400 text-sm leading-relaxed">Importação direta de especificações e tabelas de requisitos não estruturados.</p>
+</div>
+<div class="relative z-10 bg-slate-900 p-8 rounded-2xl border border-accent-cyan/30 shadow-glow-cyan scale-105 h-full">
+<div class="absolute -inset-[1px] bg-gradient-to-r from-accent-cyan to-primary rounded-2xl opacity-20 blur-sm -z-10"></div>
+<div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 text-white rounded-xl flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(34,211,238,0.4)] mx-auto border border-white/20">
+<span class="material-symbols-outlined text-4xl animate-pulse">psychology_alt</span>
+</div>
+<h4 class="text-xl font-bold mb-3 text-center text-white text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 to-white">Motor de IA</h4>
+<p class="text-slate-300 text-sm leading-relaxed text-center">Processamento NLP, extração de entidades e conexão contextual com NotebookLM.</p>
+</div>
+<div class="relative z-10 bg-slate-900 p-8 rounded-2xl border border-white/10 shadow-card-inner hover:-translate-y-1 transition-transform duration-300 h-full">
+<div class="w-14 h-14 bg-purple-500/10 text-accent-purple border border-purple-500/20 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(192,132,252,0.15)]">
+<span class="material-symbols-outlined text-3xl">dataset_linked</span>
+</div>
+<h4 class="text-xl font-bold mb-3 text-white">Git Issues</h4>
+<p class="text-slate-400 text-sm leading-relaxed">Criação automática de issues estruturadas e rastreáveis no seu repositório.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Fluxo de Colaboração &amp; Perfis</h2>
+<p class="text-slate-400 max-w-xl">Ferramentas desenhadas para integrar todos os papéis no ciclo de vida do software.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="group bg-slate-900/50 p-6 rounded-2xl border border-white/10 hover:border-accent-green/50 transition-all duration-300 shadow-card-inner hover:shadow-[0_0_20px_rgba(52,211,153,0.1)]">
+<div class="flex items-center justify-between mb-6">
+<div class="bg-emerald-500/10 text-accent-green p-3 rounded-lg border border-emerald-500/20">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<span class="text-xs font-bold text-accent-green bg-emerald-500/10 border border-emerald-500/20 px-2 py-1 rounded">DEVS</span>
+</div>
+<h3 class="text-lg font-bold mb-2 text-white">Desenvolvedores</h3>
+<p class="text-sm text-slate-400 mb-4">Implementação guiada por requisitos estruturados diretamente no fluxo de trabalho Git.</p>
+<div class="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full w-3/4 bg-accent-green group-hover:animate-[loading_1s_ease-in-out_infinite] shadow-[0_0_10px_rgba(52,211,153,0.8)]"></div>
+</div>
+</div>
+<div class="group bg-slate-900/50 p-6 rounded-2xl border border-white/10 hover:border-accent-blue/50 transition-all duration-300 shadow-card-inner hover:shadow-[0_0_20px_rgba(96,165,250,0.1)]">
+<div class="flex items-center justify-between mb-6">
+<div class="bg-blue-500/10 text-accent-blue p-3 rounded-lg border border-blue-500/20">
+<span class="material-symbols-outlined">architecture</span>
+</div>
+<span class="text-xs font-bold text-accent-blue bg-blue-500/10 border border-blue-500/20 px-2 py-1 rounded">ARQUITETOS</span>
+</div>
+<h3 class="text-lg font-bold mb-2 text-white">Arquitetos</h3>
+<p class="text-sm text-slate-400 mb-4">Visão sistêmica, definição de fronteiras, componentes e padrões de projeto.</p>
+<div class="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full w-1/2 bg-accent-blue group-hover:animate-[loading_1.5s_ease-in-out_infinite] shadow-[0_0_10px_rgba(96,165,250,0.8)]"></div>
+</div>
+</div>
+<div class="group bg-slate-900/50 p-6 rounded-2xl border border-white/10 hover:border-accent-yellow/50 transition-all duration-300 shadow-card-inner hover:shadow-[0_0_20px_rgba(251,191,36,0.1)]">
+<div class="flex items-center justify-between mb-6">
+<div class="bg-amber-500/10 text-accent-yellow p-3 rounded-lg border border-amber-500/20">
+<span class="material-symbols-outlined">assignment</span>
+</div>
+<span class="text-xs font-bold text-accent-yellow bg-amber-500/10 border border-amber-500/20 px-2 py-1 rounded">REQ/PO</span>
+</div>
+<h3 class="text-lg font-bold mb-2 text-white">Eng. Requisitos</h3>
+<p class="text-sm text-slate-400 mb-4">Modelagem de necessidades de negócio e tradução para especificações técnicas.</p>
+<div class="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full w-5/6 bg-accent-yellow group-hover:animate-[loading_1.2s_ease-in-out_infinite] shadow-[0_0_10px_rgba(251,191,36,0.8)]"></div>
+</div>
+</div>
+<div class="group bg-slate-900/50 p-6 rounded-2xl border border-white/10 hover:border-accent-purple/50 transition-all duration-300 shadow-card-inner hover:shadow-[0_0_20px_rgba(192,132,252,0.1)]">
+<div class="flex items-center justify-between mb-6">
+<div class="bg-purple-500/10 text-accent-purple p-3 rounded-lg border border-purple-500/20">
+<span class="material-symbols-outlined">bug_report</span>
+</div>
+<span class="text-xs font-bold text-accent-purple bg-purple-500/10 border border-purple-500/20 px-2 py-1 rounded">QA/TESTERS</span>
+</div>
+<h3 class="text-lg font-bold mb-2 text-white">Testers</h3>
+<p class="text-sm text-slate-400 mb-4">Validação contínua com casos de teste gerados automaticamente a partir da arquitetura.</p>
+<div class="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full w-2/3 bg-accent-purple group-hover:animate-[loading_1.3s_ease-in-out_infinite] shadow-[0_0_10px_rgba(192,132,252,0.8)]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-slate-900 relative overflow-hidden border-t border-white/5">
+<div class="absolute inset-0 grid-bg opacity-10 pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1 relative">
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-primary/20 rounded-full blur-[80px]"></div>
+<div class="bg-slate-900/80 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl p-6 relative z-10">
+<div class="flex items-center justify-between mb-8 pb-4 border-b border-white/5">
+<div>
+<h4 class="text-white font-bold text-lg">Visão de Progresso</h4>
+<p class="text-slate-400 text-xs">Projeto: Sistema de Pagamentos V2</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center px-2 py-1 rounded text-[10px] font-bold bg-emerald-500/10 text-accent-green border border-emerald-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-accent-green mr-1.5 animate-pulse"></span>
+                                Online
+                            </span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-slate-800/50 p-4 rounded-xl border border-white/5">
+<div class="text-slate-400 text-xs mb-1">Entregas no Sprint</div>
+<div class="text-2xl font-bold text-white">85%</div>
+<div class="h-1.5 w-full bg-slate-700 rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-accent-blue w-[85%] rounded-full shadow-[0_0_10px_rgba(96,165,250,0.5)]"></div>
+</div>
+</div>
+<div class="bg-slate-800/50 p-4 rounded-xl border border-white/5">
+<div class="text-slate-400 text-xs mb-1">Valor de Negócio</div>
+<div class="text-2xl font-bold text-white">High</div>
+<div class="flex gap-1 mt-2">
+<div class="h-1.5 w-1/3 bg-accent-green rounded-full shadow-[0_0_5px_rgba(52,211,153,0.5)]"></div>
+<div class="h-1.5 w-1/3 bg-accent-green rounded-full shadow-[0_0_5px_rgba(52,211,153,0.5)]"></div>
+<div class="h-1.5 w-1/3 bg-slate-700 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 bg-slate-800/30 rounded-lg hover:bg-slate-800/50 transition-colors border border-transparent hover:border-white/5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-accent-blue">
+<span class="material-symbols-outlined text-sm">payments</span>
+</div>
+<div>
+<h5 class="text-sm font-medium text-white">Checkout Transparente</h5>
+<span class="text-[10px] text-slate-400">Implementação Core</span>
+</div>
+</div>
+<span class="text-xs font-bold text-accent-green bg-emerald-500/10 px-2 py-1 rounded border border-emerald-500/20">Concluído</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-slate-800/30 rounded-lg hover:bg-slate-800/50 transition-colors border border-transparent hover:border-white/5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center text-accent-purple">
+<span class="material-symbols-outlined text-sm">shield</span>
+</div>
+<div>
+<h5 class="text-sm font-medium text-white">Validação Anti-Fraude</h5>
+<span class="text-[10px] text-slate-400">Regras de Negócio</span>
+</div>
+</div>
+<span class="text-xs font-bold text-accent-yellow bg-amber-500/10 px-2 py-1 rounded border border-amber-500/20">Em Teste</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-slate-800/30 rounded-lg hover:bg-slate-800/50 transition-colors border border-transparent hover:border-white/5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-slate-700/50 flex items-center justify-center text-slate-400">
+<span class="material-symbols-outlined text-sm">receipt_long</span>
+</div>
+<div>
+<h5 class="text-sm font-medium text-slate-300">Emissão de NF-e</h5>
+<span class="text-[10px] text-slate-500">Integração Externa</span>
+</div>
+</div>
+<span class="text-xs font-bold text-slate-400 bg-slate-700/20 px-2 py-1 rounded border border-slate-700/30">Backlog</span>
+</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<div class="inline-block bg-accent-blue/10 text-accent-blue border border-accent-blue/20 px-3 py-1 rounded-full text-xs font-bold mb-6 shadow-[0_0_10px_rgba(96,165,250,0.2)]">
+                        PORTAL CLIENTE / PO
+                    </div>
+<h2 class="text-4xl font-bold mb-6 leading-tight text-white">
+                        Portal de Entrega de Valor: <br/>
+<span class="text-gradient">Visibilidade Real para o Negócio</span>
+</h2>
+<p class="text-slate-400 mb-8 text-lg">
+                        Conecte a estratégia à execução sem o ruído técnico. Acompanhe cada passo do desenvolvimento traduzido para a linguagem que importa: o valor entregue.
+                    </p>
+<div class="space-y-8">
+<div class="flex gap-5">
+<div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0 shadow-lg group hover:border-accent-blue/50 transition-colors">
+<span class="material-symbols-outlined text-accent-blue group-hover:scale-110 transition-transform">check_circle</span>
+</div>
+<div>
+<h4 class="font-bold text-xl text-white mb-2">Validação Funcional Simplificada</h4>
+<p class="text-slate-400 leading-relaxed">
+                                O cliente visualiza o fluxo de negócio limpo, sem complexidade técnica. Aprove ou solicite ajustes com base no comportamento esperado, não em código.
+                            </p>
+</div>
+</div>
+<div class="flex gap-5">
+<div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0 shadow-lg group hover:border-accent-green/50 transition-colors">
+<span class="material-symbols-outlined text-accent-green group-hover:scale-110 transition-transform">sync_alt</span>
+</div>
+<div>
+<h4 class="font-bold text-xl text-white mb-2">Acompanhamento em Tempo Real</h4>
+<p class="text-slate-400 leading-relaxed">
+                                Conexão direta e transparente entre o que está sendo desenvolvido no Git e a regra de negócio original. Veja o status real de cada requisito.
+                            </p>
+</div>
+</div>
+<div class="flex gap-5">
+<div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0 shadow-lg group hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">visibility</span>
+</div>
+<div>
+<h4 class="font-bold text-xl text-white mb-2">Transparência Total</h4>
+<p class="text-slate-400 leading-relaxed">
+                                Redução drástica de lacunas de comunicação. Diretoria, POs e Engenharia falam a mesma língua através de dashboards unificados de progresso.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-slate-900 relative overflow-hidden border-t border-white/5">
+<div class="absolute inset-0 grid-bg opacity-20"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div>
+<div class="inline-block bg-primary/10 text-primary-light border border-primary/30 px-3 py-1 rounded-full text-xs font-bold mb-6 shadow-[0_0_10px_rgba(99,102,241,0.2)]">
+                    MÓDULO DE GOVERNANÇA
+                </div>
+<h2 class="text-4xl font-bold mb-6 leading-tight text-white">Visões Estratégicas e Governança</h2>
+<p class="text-slate-400 mb-8 text-lg">Garanta alinhamento total com painéis adaptados para cada nível da organização.</p>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0 shadow-lg">
+<span class="material-symbols-outlined text-accent-green">monitoring</span>
+</div>
+<div>
+<h4 class="font-bold text-lg text-white">Mapa de Saúde Tecnológica</h4>
+<p class="text-sm text-slate-400">(Visão Diretor) Monitoramento de dívida técnica, riscos e conformidade.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0 shadow-lg">
+<span class="material-symbols-outlined text-accent-blue">verified</span>
+</div>
+<div>
+<h4 class="font-bold text-lg text-white">Portal de Entrega de Valor</h4>
+<p class="text-sm text-slate-400">(Visão Cliente/PO) Transparência no progresso das entregas de negócio.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-[#0f172a] rounded-xl overflow-hidden border border-slate-700 shadow-2xl font-mono text-sm shadow-[0_0_40px_rgba(0,0,0,0.5)]">
+<div class="bg-[#1e293b] px-4 py-3 flex items-center justify-between border-b border-slate-700">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-red-500"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+<div class="w-3 h-3 rounded-full bg-green-500"></div>
+</div>
+<div class="text-slate-500 text-xs">gov-shell — -zsh — 80x24</div>
+</div>
+<div class="p-6 text-slate-300 space-y-2 font-medium">
+<p class="flex gap-2">
+<span class="text-accent-green">➜</span>
+<span class="text-accent-blue">~/prodabel-flow</span>
+<span class="text-white">cat Manifesto_Architecture.json</span>
+</p>
+<div class="bg-slate-900/50 p-3 rounded border border-slate-800 text-xs leading-relaxed my-3">
+<pre><span class="text-accent-purple">{</span>
+  <span class="text-accent-blue">"modulo"</span>: <span class="text-accent-green">"pagamentos-core"</span>,
+  <span class="text-accent-blue">"rastreabilidade"</span>: <span class="text-accent-green">"doc-code"</span>,
+  <span class="text-accent-blue">"status_sync"</span>: <span class="text-accent-green">"ativo"</span>,
+  <span class="text-accent-blue">"regras"</span>: <span class="text-accent-purple">[</span><span class="text-accent-green">"LGPD"</span>, <span class="text-accent-green">"PCI-DSS"</span><span class="text-accent-purple">]</span>
+<span class="text-accent-purple">}</span></pre>
+</div>
+<p class="flex gap-2 mt-4">
+<span class="text-accent-green">➜</span>
+<span class="text-accent-blue">~/prodabel-flow</span>
+<span class="text-white">git sync status</span>
+</p>
+<div class="pl-4 border-l-2 border-slate-700 my-2 text-xs">
+<p class="text-slate-500">Verificando rastreabilidade Doc-Code...</p>
+<p class="text-slate-500">Atualizando issues remotas...</p>
+</div>
+<p class="text-accent-green mt-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">check</span> Sincronização de Issues Git Completa.
+                    </p>
+<p class="text-slate-500 text-xs mt-1">Rastreabilidade Doc-Code verificada.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-slate-950">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Análise Competitiva &amp; ROI</h2>
+<p class="text-slate-400">Compare e entenda por que o ProdabelFlow lidera o mercado.</p>
+</div>
+<div class="grid lg:grid-cols-2 gap-12">
+<div class="bg-slate-900 rounded-2xl p-6 md:p-8 border border-white/10 shadow-card-inner">
+<h3 class="text-xl font-bold mb-6 text-white">Comparativo de Recursos</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm">
+<thead>
+<tr class="border-b border-white/10">
+<th class="pb-4 font-semibold text-slate-500">Recurso</th>
+<th class="pb-4 font-bold text-primary-light text-center bg-primary/10 rounded-t-lg">ProdabelFlow</th>
+<th class="pb-4 font-semibold text-slate-500 text-center px-4">Lucidchart</th>
+<th class="pb-4 font-semibold text-slate-500 text-center px-4">IcePanel</th>
+<th class="pb-4 font-semibold text-slate-500 text-center px-4">Ent. Arch</th>
+</tr>
+</thead>
+<tbody class="text-slate-300">
+<tr class="border-b border-white/5">
+<td class="py-4 font-medium">Ingestão IA (.docx/NLP)</td>
+<td class="py-4 text-center bg-primary/10 text-accent-green font-bold shadow-[inset_0_0_10px_rgba(99,102,241,0.1)]"><span class="material-symbols-outlined text-sm">check_circle</span></td>
+<td class="py-4 text-center text-slate-600"><span class="material-symbols-outlined text-sm">cancel</span></td>
+<td class="py-4 text-center text-slate-600"><span class="material-symbols-outlined text-sm">cancel</span></td>
+<td class="py-4 text-center text-slate-600"><span class="material-symbols-outlined text-sm">cancel</span></td>
+</tr>
+<tr class="border-b border-white/5">
+<td class="py-4 font-medium">Contexto NotebookLM</td>
+<td class="py-4 text-center bg-primary/10 text-accent-green font-bold shadow-[inset_0_0_10px_rgba(99,102,241,0.1)]"><span class="material-symbols-outlined text-sm">check_circle</span></td>
+<td class="py-4 text-center text-slate-600"><span class="material-symbols-outlined text-sm">cancel</span></td>
+<td class="py-4 text-center text-slate-600"><span class="material-symbols-outlined text-sm">cancel</span></td>
+<td class="py-4 text-center text-slate-600"><span class="material-symbols-outlined text-sm">cancel</span></td>
+</tr>
+<tr class="border-b border-white/5">
+<td class="py-4 font-medium">Git Bidirecional</td>
+<td class="py-4 text-center bg-primary/10 text-accent-green font-bold shadow-[inset_0_0_10px_rgba(99,102,241,0.1)]"><span class="material-symbols-outlined text-sm">check_circle</span></td>
+<td class="py-4 text-center text-slate-600"><span class="material-symbols-outlined text-sm">cancel</span></td>
+<td class="py-4 text-center text-slate-500 text-xs">Parcial</td>
+<td class="py-4 text-center text-slate-600"><span class="material-symbols-outlined text-sm">cancel</span></td>
+</tr>
+<tr>
+<td class="py-4 font-medium">Governança Ativa</td>
+<td class="py-4 text-center bg-primary/10 rounded-b-lg text-accent-green font-bold shadow-[inset_0_0_10px_rgba(99,102,241,0.1)]"><span class="material-symbols-outlined text-sm">check_circle</span></td>
+<td class="py-4 text-center text-slate-600"><span class="material-symbols-outlined text-sm">cancel</span></td>
+<td class="py-4 text-center text-slate-600"><span class="material-symbols-outlined text-sm">cancel</span></td>
+<td class="py-4 text-center text-slate-500 text-xs">Manual</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bg-slate-900 rounded-2xl p-6 md:p-8 border border-white/10 shadow-card-inner flex flex-col">
+<h3 class="text-xl font-bold mb-2 text-white">Eficiência Operacional</h3>
+<p class="text-sm text-slate-400 mb-8">Valor Técnico vs. ROI Financeiro</p>
+<div class="relative h-64 w-full border-l border-b border-slate-700 mt-4 bg-transparent">
+<div class="absolute -left-8 top-1/2 -translate-y-1/2 text-xs text-slate-500 -rotate-90 font-bold tracking-widest">ROI FINANCEIRO</div>
+<div class="absolute bottom-[-30px] w-full text-center text-xs text-slate-500 font-bold tracking-widest">VALOR TÉCNICO</div>
+<div class="absolute inset-0 grid grid-cols-4 grid-rows-4 pointer-events-none">
+<div class="border-t border-r border-slate-800"></div>
+<div class="border-t border-r border-slate-800"></div>
+<div class="border-t border-r border-slate-800"></div>
+<div class="border-t border-r border-slate-800"></div>
+<div class="border-t border-r border-slate-800"></div>
+<div class="border-t border-r border-slate-800"></div>
+<div class="border-t border-r border-slate-800"></div>
+<div class="border-t border-r border-slate-800"></div>
+<div class="border-t border-r border-slate-800"></div>
+<div class="border-t border-r border-slate-800"></div>
+<div class="border-t border-r border-slate-800"></div>
+<div class="border-t border-r border-slate-800"></div>
+<div class="border-t border-r border-slate-800"></div>
+<div class="border-t border-r border-slate-800"></div>
+<div class="border-t border-r border-slate-800"></div>
+<div class="border-t border-r border-slate-800"></div>
+</div>
+<div class="absolute left-[20%] bottom-[20%] w-4 h-4 bg-slate-600 rounded-full hover:scale-150 transition-transform cursor-pointer group border border-slate-400">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 border border-slate-600 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-20">Legado</div>
+</div>
+<div class="absolute left-[40%] bottom-[30%] w-4 h-4 bg-slate-500 rounded-full hover:scale-150 transition-transform cursor-pointer group border border-slate-300">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 border border-slate-600 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-20">Ferramentas Visuais</div>
+</div>
+<div class="absolute right-[10%] top-[10%] w-6 h-6 bg-accent-cyan shadow-glow-cyan rounded-full hover:scale-125 transition-transform cursor-pointer group flex items-center justify-center animate-pulse z-10 border border-white">
+<div class="w-2 h-2 bg-white rounded-full shadow-[0_0_10px_white]"></div>
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg opacity-100 transition-opacity whitespace-nowrap shadow-lg border border-primary-light">ProdabelFlow</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-slate-950 text-white pt-20 pb-10 border-t border-white/5">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-gradient-to-r from-blue-950 to-primary/20 rounded-3xl p-10 md:p-16 text-center border border-white/10 relative overflow-hidden mb-20 shadow-2xl">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[100px] rounded-full pointer-events-none"></div>
+<div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-6 backdrop-blur-sm">
+<span class="material-symbols-outlined text-accent-yellow text-sm">trending_up</span>
+<span class="text-sm font-bold text-slate-200">ROI Projetado 4.5x no primeiro trimestre</span>
+</div>
+<h2 class="text-3xl md:text-5xl font-bold mb-6 max-w-3xl mx-auto text-white">Acelere sua arquitetura hoje.</h2>
+<p class="text-lg text-slate-300 mb-10 max-w-xl mx-auto">Junte-se a times de alta performance governando sua arquitetura com IA.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+<button class="bg-primary hover:bg-primary-hover text-white h-14 px-8 rounded-xl text-lg font-bold transition-all shadow-lg hover:shadow-primary/50 border border-white/10">
+                    Iniciar Teste Grátis
+                </button>
+<button class="bg-transparent hover:bg-white/5 border border-white/10 hover:border-white/30 text-white h-14 px-8 rounded-xl text-lg font-bold transition-all">
+                    Falar com Vendas
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-10">
+<div class="col-span-2 md:col-span-1">
+<div class="flex items-center gap-2 mb-4">
+<div class="w-6 h-6 flex items-center justify-center bg-primary rounded text-white text-[10px] shadow-[0_0_10px_rgba(99,102,241,0.5)]">
+<span class="material-symbols-outlined text-sm">hub</span>
+</div>
+<span class="font-bold text-lg">ProdabelFlow</span>
+</div>
+<p class="text-slate-400 text-sm">Governança de Arquitetura Corporativa na Era da IA.</p>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-slate-200">Produto</h4>
+<ul class="space-y-2 text-sm text-slate-400">
+<li><a class="hover:text-primary-light transition-colors" href="#">Ingestão</a></li>
+<li><a class="hover:text-primary-light transition-colors" href="#">Governança</a></li>
+<li><a class="hover:text-primary-light transition-colors" href="#">Preços</a></li>
+<li><a class="hover:text-primary-light transition-colors" href="#">Changelog</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-slate-200">Empresa</h4>
+<ul class="space-y-2 text-sm text-slate-400">
+<li><a class="hover:text-primary-light transition-colors" href="#">Sobre</a></li>
+<li><a class="hover:text-primary-light transition-colors" href="#">Carreiras</a></li>
+<li><a class="hover:text-primary-light transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-primary-light transition-colors" href="#">Contato</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-slate-200">Legal</h4>
+<ul class="space-y-2 text-sm text-slate-400">
+<li><a class="hover:text-primary-light transition-colors" href="#">Privacidade</a></li>
+<li><a class="hover:text-primary-light transition-colors" href="#">Termos</a></li>
+<li><a class="hover:text-primary-light transition-colors" href="#">Segurança</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-10 text-center text-xs text-slate-600">
+            © 2023 ProdabelFlow Inc. Todos os direitos reservados.
+        </div>
+</div>
+</footer>
+</body></html>
