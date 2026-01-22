@@ -12,7 +12,7 @@
 
       <div class="row g-4">
         <div class="col-md-6 col-lg-3" v-for="(profile, index) in profiles" :key="profile.id">
-          <div class="profile-card scroll-reveal hover-lift" :class="`profile-${profile.color} delay-${(index + 1) * 100}`">
+          <div class="profile-card hover-lift" :class="`profile-${profile.color}`">
             <div class="profile-header">
               <div class="profile-icon icon-bounce" :class="`bg-${profile.color}`">
                 <span class="material-symbols-outlined">{{ profile.icon }}</span>
@@ -108,7 +108,7 @@ export default {
   max-width: 40rem;
 }
 
-.profile-card {
+.collaboration-section .profile-card {
   background: var(--bg-card);
   padding: 1.5rem;
   border-radius: 1rem;
@@ -116,10 +116,22 @@ export default {
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
   height: 100%;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+:global(.light) .collaboration-section .profile-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .profile-card:hover {
   box-shadow: 0 0 20px rgba(52, 211, 153, 0.1);
+}
+
+:global(.light) .profile-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .profile-card.profile-green:hover {

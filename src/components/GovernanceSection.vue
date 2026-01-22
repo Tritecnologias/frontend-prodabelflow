@@ -33,49 +33,12 @@
         </div>
         
         <div class="col-lg-6">
-          <div class="terminal-window">
-            <div class="terminal-header">
-              <div class="terminal-dots">
-                <div class="dot red"></div>
-                <div class="dot yellow"></div>
-                <div class="dot green"></div>
-              </div>
-              <div class="terminal-title">gov-shell — -zsh — 80x24</div>
-            </div>
-            
-            <div class="terminal-body">
-              <p class="terminal-line">
-                <span class="prompt">➜</span>
-                <span class="path">~/prodabel-flow</span>
-                <span class="command">cat Manifesto_Architecture.json</span>
-              </p>
-              
-              <div class="code-block">
-                <pre><span class="json-bracket">{</span>
-  <span class="json-key">"modulo"</span>: <span class="json-value">"pagamentos-core"</span>,
-  <span class="json-key">"rastreabilidade"</span>: <span class="json-value">"doc-code"</span>,
-  <span class="json-key">"status_sync"</span>: <span class="json-value">"ativo"</span>,
-  <span class="json-key">"regras"</span>: <span class="json-bracket">[</span><span class="json-value">"LGPD"</span>, <span class="json-value">"PCI-DSS"</span><span class="json-bracket">]</span>
-<span class="json-bracket">}</span></pre>
-              </div>
-              
-              <p class="terminal-line mt-3">
-                <span class="prompt">➜</span>
-                <span class="path">~/prodabel-flow</span>
-                <span class="command">git sync status</span>
-              </p>
-              
-              <div class="terminal-output">
-                <p class="output-line">Verificando rastreabilidade Doc-Code...</p>
-                <p class="output-line">Atualizando issues remotas...</p>
-              </div>
-              
-              <p class="success-line">
-                <span class="material-symbols-outlined">check</span>
-                Sincronização de Issues Git Completa.
-              </p>
-              <p class="info-line">Rastreabilidade Doc-Code verificada.</p>
-            </div>
+          <div class="governance-image-wrapper">
+            <img 
+              src="/images/visoes-estrategicas.webp" 
+              alt="Visões Estratégicas - Governança"
+              class="governance-image"
+            />
           </div>
         </div>
       </div>
@@ -307,5 +270,34 @@ export default {
   color: var(--slate-500);
   font-size: 0.75rem;
   margin-top: 0.25rem;
+}
+
+/* Governance Image */
+.governance-image-wrapper {
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+:global(.light) .governance-image-wrapper {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
+}
+
+.governance-image-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.3), 0 15px 15px -5px rgba(0, 0, 0, 0.15);
+}
+
+:global(.light) .governance-image-wrapper:hover {
+  box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.15), 0 15px 15px -5px rgba(0, 0, 0, 0.08);
+}
+
+.governance-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 </style>

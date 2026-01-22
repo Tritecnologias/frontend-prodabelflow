@@ -15,7 +15,7 @@
             </h1>
             
             <p class="hero-description">
-              A ponte definitiva entre requisitos de negócio e a engenharia de software governada.
+              A ponte definitiva entre estratégia, negócio e tecnologia. Traduzimos múltiplas visões em uma entrega sólida: processos claros, arquitetura escalável e governança preparada para o futuro.
             </p>
             
             <div class="hero-actions">

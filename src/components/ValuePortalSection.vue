@@ -47,7 +47,11 @@
                       <span class="task-subtitle">{{ task.subtitle }}</span>
                     </div>
                   </div>
-                  <span class="task-status" :class="`status-${task.statusColor}`">
+                  <div v-if="task.incidents" class="incidents-badge">
+                    <span class="incident-pending">{{ task.incidents.pending }} pendentes</span>
+                    <span class="incident-resolved">✓ {{ task.incidents.resolved }} resolvidos</span>
+                  </div>
+                  <span v-else class="task-status" :class="`status-${task.statusColor}`">
                     {{ task.status }}
                   </span>
                 </div>
@@ -112,6 +116,19 @@ export default {
         },
         {
           id: 3,
+          icon: 'bug_report',
+          color: 'red',
+          title: 'Incidentes GIT',
+          subtitle: 'Rastreabilidade & Resolução',
+          status: '0 pendentes',
+          statusColor: 'green',
+          incidents: {
+            pending: 0,
+            resolved: 22
+          }
+        },
+        {
+          id: 4,
           icon: 'receipt_long',
           color: 'gray',
           title: 'Emissão de NF-e',
@@ -352,6 +369,18 @@ export default {
   color: var(--slate-400);
 }
 
+.task-icon.bg-red {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+:global(.light) .task-icon.bg-red {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
 .task-icon .material-symbols-outlined {
   font-size: 0.875rem;
 }
@@ -391,6 +420,46 @@ export default {
   background: rgba(71, 85, 105, 0.2);
   color: var(--slate-400);
   border: 1px solid rgba(71, 85, 105, 0.3);
+}
+
+/* Incidents Badge */
+.incidents-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.incident-pending {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background: rgba(100, 116, 139, 0.1);
+  color: var(--text-tertiary);
+  border: 1px solid rgba(100, 116, 139, 0.2);
+}
+
+:global(.light) .incident-pending {
+  background: rgba(71, 85, 105, 0.1);
+  color: #475569;
+  border-color: rgba(71, 85, 105, 0.2);
+}
+
+.incident-resolved {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--accent-green);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+:global(.light) .incident-resolved {
+  background: rgba(5, 150, 105, 0.1);
+  color: #059669;
+  border-color: rgba(5, 150, 105, 0.2);
 }
 
 .badge-custom {
