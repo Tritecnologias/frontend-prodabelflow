@@ -63,7 +63,7 @@
       </div>
 
       <div class="footer-bottom">
-        © 2023 ProdabelFlow Inc. Todos os direitos reservados.
+        © 2026 ProdabelFlow Inc. Todos os direitos reservados.
       </div>
     </div>
   </footer>
