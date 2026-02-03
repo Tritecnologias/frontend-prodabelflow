@@ -5,7 +5,7 @@
         <div class="col-lg-6">
           <div class="hero-visual">
             <img 
-              src="/images/diagrama_de_ecossistema_prodabelflow.png" 
+              src="/images/diagrama_de_ecossistema_prodabelflow.jpg" 
               alt="ProdabelFlow Architect 360°"
               class="hero-diagram-image"
             />
@@ -14,18 +14,12 @@
 
         <div class="col-lg-6">
           <div class="hero-content">
-            <div class="badge-version">
-              <span class="pulse-dot"></span>
-              v2.0 Disponível com Suporte NotebookLM
-            </div>
-            
-            <h1 class="hero-title">
-              <span class="text-gradient">ProdabelFlow</span><br/>
-              Architect 360°
+            <h1 class="hero-main-text">
+              A ponte definitiva <span class="text-light">entre estratégia, negócio e tecnologia.</span>
             </h1>
             
             <p class="hero-description">
-              A ponte definitiva entre estratégia, negócio e tecnologia. Traduzimos múltiplas visões em uma entrega sólida: processos claros, arquitetura escalável e governança preparada para o futuro.
+              Traduzimos múltiplas visões em uma entrega sólida: processos claros, arquitetura escalável e governança preparada para o futuro.
             </p>
             
             <div class="hero-actions">
@@ -68,6 +62,27 @@ export default {
 .hero-content {
   position: relative;
   z-index: 10;
+}
+
+.hero-main-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+@media (min-width: 992px) {
+  .hero-main-text {
+    font-size: 3.5rem;
+  }
+}
+
+.hero-main-text .text-light {
+  font-weight: 400;
+  opacity: 1 !important;
+  color: var(--text-primary) !important;
 }
 
 .badge-version {
@@ -186,21 +201,11 @@ export default {
   width: 100%;
   height: auto;
   border-radius: 1.5rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .hero-diagram-image:hover {
   transform: scale(1.02);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
-}
-
-:global(.light) .hero-diagram-image {
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-}
-
-:global(.light) .hero-diagram-image:hover {
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
 }
 
 .card-inner {
