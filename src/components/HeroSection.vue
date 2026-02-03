@@ -3,35 +3,6 @@
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-lg-6">
-          <div class="hero-content">
-            <div class="badge-version">
-              <span class="pulse-dot"></span>
-              v2.0 Disponível com Suporte NotebookLM
-            </div>
-            
-            <h1 class="hero-title">
-              <span class="text-gradient">ProdabelFlow</span><br/>
-              Architect 360°
-            </h1>
-            
-            <p class="hero-description">
-              A ponte definitiva entre estratégia, negócio e tecnologia. Traduzimos múltiplas visões em uma entrega sólida: processos claros, arquitetura escalável e governança preparada para o futuro.
-            </p>
-            
-            <div class="hero-actions">
-              <button class="btn-hero-primary">
-                Iniciar Teste Grátis
-                <span class="material-symbols-outlined">rocket_launch</span>
-              </button>
-              <button class="btn-hero-secondary">
-                <span class="material-symbols-outlined">play_circle</span>
-                Ver Demo
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
           <div class="hero-visual">
             <div class="visual-card">
               <div class="card-inner">
@@ -93,6 +64,35 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="hero-content">
+            <div class="badge-version">
+              <span class="pulse-dot"></span>
+              v2.0 Disponível com Suporte NotebookLM
+            </div>
+            
+            <h1 class="hero-title">
+              <span class="text-gradient">ProdabelFlow</span><br/>
+              Architect 360°
+            </h1>
+            
+            <p class="hero-description">
+              A ponte definitiva entre estratégia, negócio e tecnologia. Traduzimos múltiplas visões em uma entrega sólida: processos claros, arquitetura escalável e governança preparada para o futuro.
+            </p>
+            
+            <div class="hero-actions">
+              <button class="btn-hero-primary">
+                Iniciar Teste Grátis
+                <span class="material-symbols-outlined">rocket_launch</span>
+              </button>
+              <button class="btn-hero-secondary">
+                <span class="material-symbols-outlined">play_circle</span>
+                Ver Demo
+              </button>
             </div>
           </div>
         </div>

@@ -33,7 +33,7 @@
             </div>
             <h4 class="feature-title featured-title">Motor de IA</h4>
             <p class="feature-text featured-text">
-              Processamento NLP, extração de entidades e conexão contextual com NotebookLM.
+              Processamento NLP, extração de entidades e conexão contextual.
             </p>
           </div>
         </div>
