@@ -4,67 +4,11 @@
       <div class="row align-items-center g-5">
         <div class="col-lg-6">
           <div class="hero-visual">
-            <div class="visual-card">
-              <div class="card-inner">
-                <div class="card-header">
-                  <div class="dot dot-red"></div>
-                  <div class="dot dot-yellow"></div>
-                  <div class="dot dot-green"></div>
-                  <div class="header-bar"></div>
-                </div>
-                
-                <div class="card-content">
-                  <div class="flow-diagram">
-                    <div class="flow-item flow-left">
-                      <div class="flow-icon bg-blue">
-                        <span class="material-symbols-outlined">description</span>
-                      </div>
-                      <div class="flow-lines">
-                        <div class="line"></div>
-                        <div class="line"></div>
-                      </div>
-                    </div>
-                    
-                    <div class="flow-connector">
-                      <div class="connector-icon">
-                        <span class="material-symbols-outlined">auto_awesome</span>
-                      </div>
-                    </div>
-                    
-                    <div class="flow-item flow-right">
-                      <div class="flow-icon bg-green">
-                        <span class="material-symbols-outlined">terminal</span>
-                      </div>
-                      <div class="flow-lines">
-                        <div class="line"></div>
-                        <div class="line"></div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="content-area">
-                    <div class="content-blocks">
-                      <div class="block-row">
-                        <div class="block block-small"></div>
-                        <div class="block block-large">
-                          <div class="block-line"></div>
-                        </div>
-                      </div>
-                      <div class="block block-medium">
-                        <div class="block-line short"></div>
-                        <div class="block-line"></div>
-                        <div class="block-line medium"></div>
-                      </div>
-                    </div>
-                    
-                    <div class="status-badge">
-                      <span class="material-symbols-outlined">check_circle</span>
-                      Sincronizado
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <img 
+              src="/images/diagrama_de_ecossistema_prodabelflow.png" 
+              alt="ProdabelFlow Architect 360°"
+              class="hero-diagram-image"
+            />
           </div>
         </div>
 
@@ -233,28 +177,30 @@ export default {
 .hero-visual {
   position: relative;
   width: 100%;
-  height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.visual-card {
-  position: relative;
+.hero-diagram-image {
   width: 100%;
-  max-width: 32rem;
-  aspect-ratio: 1;
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
+  height: auto;
   border-radius: 1.5rem;
-  padding: 1.5rem;
-  box-shadow: 0 25px 50px -12px var(--shadow-color);
-  border: 1px solid var(--glass-border);
-  transition: transform 0.7s ease;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.visual-card:hover {
-  transform: rotateY(0deg);
+.hero-diagram-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+}
+
+:global(.light) .hero-diagram-image {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+:global(.light) .hero-diagram-image:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
 }
 
 .card-inner {
